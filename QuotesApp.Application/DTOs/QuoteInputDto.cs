@@ -1,9 +1,9 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace QuotesApp.Domain.Entities
+namespace QuotesApp.Application.DTOs
 {
-    public class Quote : BaseEntity
+    public class QuoteInputDto
     {
         [Required]
         [StringLength(3000, MinimumLength = 10)]
@@ -16,6 +16,5 @@ namespace QuotesApp.Domain.Entities
         [StringLength(150)]
         public string Source { get; set; }
 
-        public DateTime? Date { get; set; }
     }
 }

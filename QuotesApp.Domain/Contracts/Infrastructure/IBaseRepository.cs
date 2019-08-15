@@ -10,7 +10,7 @@ namespace QuotesApp.Domain.Contracts.Infrastructure
         IQueryable<T> GetAll();
         Task<T> GetById(int id);
         Task Create(T entity);
-        Task Update(T entity);
+        Task Update(int id, T entity);
         Task Delete(int id);
     }
 }

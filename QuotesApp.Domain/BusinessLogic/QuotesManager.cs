@@ -14,13 +14,13 @@ namespace QuotesApp.Domain.BusinessLogic
         #region Propeties and Fields
 
         private readonly IQuotesRepository _repository;
-        private readonly IStringLocalizer _l;
+        private readonly IStringLocalizer<Quote> _l;
 
         #endregion
 
         #region Constructor
 
-        public QuotesManager(IQuotesRepository repository, IStringLocalizer l)
+        public QuotesManager(IQuotesRepository repository, IStringLocalizer<Quote> l)
         {
             _repository = repository;
             _l = l;
@@ -32,7 +32,7 @@ namespace QuotesApp.Domain.BusinessLogic
 
         public IEnumerable<Quote> List()
         {
-            return _repository.GetAll().AsEnumerable();
+            return _repository.GetAll().ToList();
         }
 
         public async Task<Quote> Find(int id)
@@ -47,7 +47,7 @@ namespace QuotesApp.Domain.BusinessLogic
 
         public async Task Update(Quote quote)
         {
-            await _repository.Update(quote);
+            await _repository.Update(quote.Id, quote);
         }
 
         public async Task Delete(int id)

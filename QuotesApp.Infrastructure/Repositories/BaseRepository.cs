@@ -39,7 +39,7 @@ namespace QuotesApp.Infrastructure.Repositories
             await _context.SaveChangesAsync();
         }
 
-        public async Task Update(T entity)
+        public async Task Update(int id, T entity)
         {
             _context.Set<T>().Update(entity);
             await _context.SaveChangesAsync();

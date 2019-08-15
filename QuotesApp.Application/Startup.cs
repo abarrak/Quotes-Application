@@ -1,3 +1,4 @@
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -5,6 +6,8 @@ using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Localization;
+using QuotesApp.Application.DTOs;
 using QuotesApp.Domain.BusinessLogic;
 using QuotesApp.Domain.Contracts;
 using QuotesApp.Domain.Contracts.Infrastructure;
@@ -30,7 +33,9 @@ namespace QuotesApp.Web
 
             services.AddDbContext<AppDbContext>(options => options.UseSqlite(connectionString));
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddMvc()
+                    .AddMvcLocalization()
+                    .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
@@ -38,6 +43,9 @@ namespace QuotesApp.Web
                 configuration.RootPath = "ClientApp/dist";
             });
 
+            services.AddSingleton<IMapper>(Mappings.Setup());
+
+            services.AddScoped(typeof(IStringLocalizer<>), typeof(StringLocalizer<>));
             services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
             services.AddScoped<IQuotesRepository, QuotesRepository>();
             services.AddScoped<IQuotesManager, QuotesManager>();
@@ -69,6 +77,7 @@ namespace QuotesApp.Web
                     name: "default",
                     template: "{controller}/{action=Index}/{id?}");
             });
+            app.UseRequestLocalization(options => options.AddSupportedCultures("en", "ar"));
 
             app.UseSpa(spa =>
             {
@@ -79,7 +88,7 @@ namespace QuotesApp.Web
 
                 if (env.IsDevelopment())
                 {
-                    spa.UseAngularCliServer(npmScript: "start");
+                    // spa.UseAngularCliServer(npmScript: "start");
                 }
             });
         }

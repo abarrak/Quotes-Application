@@ -15,6 +15,6 @@
   <ItemGroup>
     <Folder Include="Repositories\" />
     <Folder Include="Database\" />
-    <Folder Include="Data\" />
+    <Folder Include="Seeds\" />
   </ItemGroup>
 </Project>
