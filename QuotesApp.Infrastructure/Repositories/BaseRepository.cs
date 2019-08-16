@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using QuotesApp.Domain.Contracts.Infrastructure;
 using QuotesApp.Domain.Entities;
+using QuotesApp.Domain.Exceptions;
 
 namespace QuotesApp.Infrastructure.Repositories
 {
@@ -23,7 +24,13 @@ namespace QuotesApp.Infrastructure.Repositories
 
         public async Task<T> GetById(int id)
         {
-            return await _context.Set<T>().AsNoTracking().FirstOrDefaultAsync(_t => _t.Id == id);
+            var entity = await _context.Set<T>().AsNoTracking().FirstOrDefaultAsync(_t => _t.Id == id);
+            if (entity == null)
+            {
+                throw new AppNotFoundException("The requested entity doesn't exist.");
+            }
+
+            return entity;
         }
 
         public async Task Create(T entity)
@@ -32,16 +39,19 @@ namespace QuotesApp.Infrastructure.Repositories
             await _context.SaveChangesAsync();
         }
 
-        public async Task Delete(int id)
+        public async Task Update(int id, T entity)
         {
-            var entity = await GetById(id);
-            _context.Set<T>().Remove(entity);
+            var _ = await GetById(id);
+
+            _context.Set<T>().Update(entity);
             await _context.SaveChangesAsync();
         }
 
-        public async Task Update(int id, T entity)
+        public async Task Delete(int id)
         {
-            _context.Set<T>().Update(entity);
+            var entity = await GetById(id);
+
+            _context.Set<T>().Remove(entity);
             await _context.SaveChangesAsync();
         }
     }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using AutoMapper;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using QuotesApp.Application.DTOs;
 using QuotesApp.Domain.Contracts;
@@ -25,6 +26,7 @@ namespace QuotesApp.Web.Controllers
         }
 
         [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK)]
         public ActionResult<IEnumerable<QuoteOutputDto>> Get()
         {
             var records = _manager.List();
@@ -32,6 +34,8 @@ namespace QuotesApp.Web.Controllers
         }
 
         [HttpGet("{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult<QuoteOutputDto>> Get(int id)
         {
             var record = await _manager.Find(id);
@@ -39,6 +43,8 @@ namespace QuotesApp.Web.Controllers
         }
 
         [HttpPost]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> Post([FromBody]QuoteInputDto quote)
         {
             var model = _mapper.Map<Quote>(quote);
@@ -48,6 +54,10 @@ namespace QuotesApp.Web.Controllers
         }
 
         [HttpPut("{id}")]
+        [HttpPatch("{id}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> Put(int id, [FromBody]QuoteInputDto quote)
         {
             var model = _mapper.Map<Quote>(quote);
@@ -58,6 +68,8 @@ namespace QuotesApp.Web.Controllers
         }
 
         [HttpDelete("{id}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> Delete(int id)
         {
             await _manager.Delete(id);
