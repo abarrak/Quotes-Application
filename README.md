@@ -1,10 +1,8 @@
 # Quotes Application
 
-
+[![Build Status](https://travis-ci.com/abarrak/Quotes-Application.svg?token=6srXbW1inBqbcVxZhTbQ&branch=master)](https://travis-ci.com/abarrak/Quotes-Application)
 
 A sample .NET core API and Angular Application to demonstrate DDD patterns and techniques.
-
-
 
 ## Usage
 
@@ -16,13 +14,9 @@ dotnet build
 dotnet run --project QuotesApp.Application
 ```
 
-
-
 ## APIs
 
 A RESTful quotes API is exposed to perform all CRUD operations on `Quotes` resource.
-
-
 
 ## Data
 
@@ -52,8 +46,6 @@ Remove migrations by:
 dotnet ef migrations remove --project QuotesApp.Infrastructure --startup-project QuotesApp.Application
 ```
 
-
-
 ## Tests
 
 Unit and integration tests suite is provided in  `QuotesApp.Tests` project.
@@ -62,8 +54,7 @@ Unit and integration tests suite is provided in  `QuotesApp.Tests` project.
 dotnet test
 ```
 
-
-
 ## Lisence
 
 MIT.
+
