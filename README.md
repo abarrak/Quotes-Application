@@ -1,6 +1,6 @@
 # Quotes Application
 
-[![Build Status](https://travis-ci.com/abarrak/Quotes-Application.svg?token=6srXbW1inBqbcVxZhTbQ&branch=master)](https://travis-ci.com/abarrak/Quotes-Application)
+[![Build Status](https://travis-ci.com/abarrak/Quotes-Application.svg?token=6srXbW1inBqbcVxZhTbQ&branch=master)](https://travis-ci.com/abarrak/Quotes-Application) [![codecov](https://codecov.io/gh/abarrak/Quotes-Application/branch/master/graph/badge.svg?token=NQoRbhJ1Ys)](https://codecov.io/gh/abarrak/Quotes-Application)
 
 A sample .NET core API and Angular Application to demonstrate DDD patterns and techniques.
 
