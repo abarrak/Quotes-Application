@@ -403,3 +403,8 @@ ASALocalRun/
 
 # Local History for Visual Studio
 .localhistory/
+
+
+# Project Specific Files
+QuotesApp.Tests/coverage.json
+QuotesApp.Tests/coverage.opencover.xml
