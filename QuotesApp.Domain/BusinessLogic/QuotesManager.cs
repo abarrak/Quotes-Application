@@ -45,9 +45,10 @@ namespace QuotesApp.Domain.BusinessLogic
             await _repository.Create(quote);
         }
 
-        public async Task Update(Quote quote)
+        public async Task Update(int id, Quote quote)
         {
-            await _repository.Update(quote.Id, quote);
+            quote.Id = id;
+            await _repository.Update(id, quote);
         }
 
         public async Task Delete(int id)

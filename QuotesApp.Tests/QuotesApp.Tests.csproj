@@ -15,4 +15,11 @@
   <ItemGroup>
     <Compile Remove="UnitTest1.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\QuotesApp.Application\QuotesApp.Application.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Domain\" />
+    <Folder Include="Application\" />
+  </ItemGroup>
 </Project>

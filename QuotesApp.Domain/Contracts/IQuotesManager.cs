@@ -11,7 +11,7 @@ namespace QuotesApp.Domain.Contracts
         Task<Quote> Find(int id);
 
         Task Add(Quote quote);
-        Task Update(Quote quote);
+        Task Update(int id, Quote quote);
         Task Delete(int id);
 
         Task AddBulk(IEnumerable<Quote> quotes);

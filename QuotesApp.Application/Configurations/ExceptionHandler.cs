@@ -33,7 +33,7 @@ namespace QuotesApp.Application.Configurations
 
         private Task HandleExceptionAsync(HttpContext context, Exception exception)
         {
-            _logger.LogError($"Exception caught in the middleware.\n {exception}");
+            _logger.LogError($"[Exception caught in the middleware].\n [Message]: {exception.Message}");
 
             context.Response.ContentType = "application/json";
             context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;

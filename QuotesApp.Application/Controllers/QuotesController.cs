@@ -61,8 +61,7 @@ namespace QuotesApp.Web.Controllers
         public async Task<IActionResult> Put(int id, [FromBody]QuoteInputDto quote)
         {
             var model = _mapper.Map<Quote>(quote);
-            model.Id = id;
-            await _manager.Update(model);
+            await _manager.Update(id, model);
 
             return NoContent();
         }

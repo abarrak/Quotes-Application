@@ -35,6 +35,7 @@ namespace QuotesApp.Infrastructure.Repositories
 
         public async Task Create(T entity)
         {
+            entity.CreatedAt = DateTime.Today;
             await _context.Set<T>().AddAsync(entity);
             await _context.SaveChangesAsync();
         }
@@ -43,7 +44,9 @@ namespace QuotesApp.Infrastructure.Repositories
         {
             var _ = await GetById(id);
 
+            entity.UpdatedAt = DateTime.Today;
             _context.Set<T>().Update(entity);
+
             await _context.SaveChangesAsync();
         }
 
