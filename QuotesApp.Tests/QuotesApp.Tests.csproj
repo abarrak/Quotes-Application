@@ -26,4 +26,8 @@
     <Folder Include="Domain\" />
     <Folder Include="Application\" />
   </ItemGroup>
+  <ItemGroup>
+    <None Remove="coverage.json" />
+    <None Remove="coverage.opencover.xml" />
+  </ItemGroup>
 </Project>

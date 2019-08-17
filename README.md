@@ -1,6 +1,7 @@
 # Quotes Application
 
-[![Build Status](https://travis-ci.com/abarrak/Quotes-Application.svg?token=6srXbW1inBqbcVxZhTbQ&branch=master)](https://travis-ci.com/abarrak/Quotes-Application) [![codecov](https://codecov.io/gh/abarrak/Quotes-Application/branch/master/graph/badge.svg?token=NQoRbhJ1Ys)](https://codecov.io/gh/abarrak/Quotes-Application)
+[![Build Status](https://travis-ci.com/abarrak/Quotes-Application.svg?token=6srXbW1inBqbcVxZhTbQ&branch=master)](https://travis-ci.com/abarrak/Quotes-Application) [![codecov](https://codecov.io/gh/abarrak/Quotes-Application/branch/master/graph/badge.svg?token=NQoRbhJ1Ys)](https://codecov.io/gh/abarrak/Quotes-Application) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 
 A sample .NET core API and Angular Application to demonstrate DDD patterns and techniques.
 
@@ -54,7 +55,12 @@ Unit and integration tests suite is provided in  `QuotesApp.Tests` project.
 dotnet test
 ```
 
+Run the tests with the coverage report as follows:
+
+```bash
+dotnet test /p:CollectCoverage=true
+```
+
 ## Lisence
 
 MIT.
-
