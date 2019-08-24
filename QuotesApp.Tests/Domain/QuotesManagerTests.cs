@@ -136,7 +136,7 @@ namespace QuotesApp.Tests
         {
             var builder = new DbContextOptionsBuilder<AppDbContext>().UseSqlite(_connection);
             var appDataContext = new AppDbContext(builder.Options);
-            // appDataContext.Database.EnsureDeleted();
+            appDataContext.Database.EnsureDeleted();
             appDataContext.Database.EnsureCreated();
 
             var repository = new QuotesRepository(appDataContext);
