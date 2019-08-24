@@ -8,7 +8,7 @@ using QuotesApp.Application.DTOs;
 using QuotesApp.Domain.Contracts;
 using QuotesApp.Domain.Entities;
 
-namespace QuotesApp.Web.Controllers
+namespace QuotesApp.Application.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]

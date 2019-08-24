@@ -12,8 +12,19 @@
     <Folder Include="Utils\" />
     <Folder Include="Contracts\Infrastructure\" />
     <Folder Include="Exceptions\" />
+    <Folder Include="Auth\" />
+    <Folder Include="Auth\Models\" />
+    <Folder Include="Auth\Services\" />
+    <Folder Include="Auth\Extensions\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Localization.Abstractions" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Identity.Stores" Version="2.2.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Auth\DTOs\SendCodeViewModel.cs" />
+    <Compile Remove="Auth\DTOs\UseRecoveryCodeViewModel.cs" />
+    <Compile Remove="Auth\DTOs\VerifyAuthenticatorCodeViewModel.cs" />
+    <Compile Remove="Auth\DTOs\VerifyCodeViewModel.cs" />
   </ItemGroup>
 </Project>
