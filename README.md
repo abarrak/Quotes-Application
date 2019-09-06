@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.com/abarrak/Quotes-Application.svg?token=6srXbW1inBqbcVxZhTbQ&branch=master)](https://travis-ci.com/abarrak/Quotes-Application) [![codecov](https://codecov.io/gh/abarrak/Quotes-Application/branch/master/graph/badge.svg?token=NQoRbhJ1Ys)](https://codecov.io/gh/abarrak/Quotes-Application) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
+<img src="https://raw.githubusercontent.com/abarrak/Quotes-Application/master/QuotesApp.Application/ClientApp/src/assets/images/quotes-app-social.png?token=AE6SOXWPGTPX5VPMCKN2EFS5POEDC" alt="logo" width="700" height="350">
 
 A sample .NET core API and Angular Application to demonstrate DDD patterns and techniques.
 
