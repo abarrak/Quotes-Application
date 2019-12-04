@@ -6,6 +6,7 @@
 
 A sample .NET core API and Angular Application to demonstrate DDD patterns and techniques.
 
+
 ## Usage
 
 Restore the packages, then run the application project as follows:
@@ -61,6 +62,21 @@ Run the tests with the coverage report as follows:
 ```bash
 dotnet test /p:CollectCoverage=true
 ```
+
+## Docker Version
+
+A containerized verison of the application is availabile in [docker hub](https://hub.docker.com/r/abarrak/quotes-app).
+
+Pull the image:
+```shell
+docker pull abarrak/quotes-app
+```
+
+Run within a container:
+```shell
+docker container run --publish 8080:80 --name quotes-app abarrak/quotes-app
+```
+
 
 ## Lisence
 
